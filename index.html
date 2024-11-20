@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kadzielas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .card {
+            max-width: 400px;
+            width: 100%;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.7s ease-out;
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-glow {
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(135deg, #9333ea 0%, #ec4899 100%);
+            border-radius: 1rem;
+            filter: blur(12px);
+            opacity: 0.25;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover .card-glow {
+            opacity: 1;
+        }
+
+        .card-content {
+            position: relative;
+            background: #1a1a1a;
+            border-radius: 1rem;
+            padding: 2rem;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .profile-img {
+            width: 168px;
+            height: 168px;
+            border-radius: 30%;
+            border: 4px solid #9333ea;
+            box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+        }
+
+        .name {
+            font-size: 1.75rem;
+            font-weight: bold;
+            background: linear-gradient(to right, #c084fc, #f472b6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .title {
+            color: #94a3b8;
+            margin-top: -1rem;
+        }
+
+        .bio {
+            text-align: center;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .social-links a {
+            color: #94a3b8;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #9333ea;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 0.5rem;
+            border-top: 1px solid #2d3748;
+            padding-top: 1.5rem;
+            width: 100%;
+        }
+
+        .skill {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skill:hover {
+            background: #9333ea;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-glow"></div>
+        <div class="card-content">
+            <img src="assets/me.png" 
+                 alt="Sebastian's profile" 
+                 class="profile-img">
+            <h1 class="name">Sebastian Kądziela</h1>
+            <p class="title">Service desk agent</p>
+            <p class="bio">
+                Passionate about everything that is related to IT - Microsoft tools (Entra ID, Power Platform), databases, SQL, front-end and back-end apps. 
+                <br><br>
+                Specializing in troubleshooting, cloud administration and automate daily tasks.
+            </p>
+            <div class="social-links">
+                <a href="https://github.com/kadzielas" title="GitHub">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/sebastian-k%C4%85dziela-58265a252/" title="LinkedIn">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                        <rect x="2" y="9" width="4" height="12"/>
+                        <circle cx="4" cy="4" r="2"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="skills">
+                <span class="skill">Java</span>
+                <span class="skill">Flutter / Dart</span>
+                <span class="skill">MySQL</span>
+                <span class="skill">Microsoft Power Platform</span>
+                <span class="skill">Microsoft Entra ID</span>
+                <span class="skill">Microsoft 365</span>
+                <span class="skill">Microsoft Intune</span>
+                <span class="skill">Linux Fedora</span>
+                <span class="skill">PostgreSQL</span>
+                <span class="skill">Powershell</span>
+              </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.querySelector('.card').classList.add('visible');
+            }, 100);
+        });
+    </script>
+</body>
+</html>
