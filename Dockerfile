@@ -7,7 +7,7 @@ WORKDIR /usr/share/nginx/html
 # Remove the default Nginx static files
 RUN rm -rf ./*
 
-# Copy your static files from the host to the container
+# Copy static files from the current directory (host) to the container
 COPY . .
 
 # Expose port 80
